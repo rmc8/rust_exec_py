@@ -11,7 +11,7 @@ def exit_if(exit_sw: bool, text: str):
 
 def main():
     cur_path: str = os.getcwd()
-    subprocess.call(f"cd {cur_path}")
+    os.system(f"cd {cur_path}")
     exit_if(
         len(sys.argv) == 1,
         "No arguments were found that contain the path to the .rs script",
