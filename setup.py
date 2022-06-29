@@ -21,6 +21,7 @@ setup(
     entry_points={
         "console_scripts": [
             "rse = rsexec.__main__:main",
+            "rsexec = rsexec.__main__:main",
         ]
     }
 )

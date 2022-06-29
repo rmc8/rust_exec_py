@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+from typing import Optional
 
 
 def exit_if(exit_sw: bool, text: str):
@@ -9,13 +10,15 @@ def exit_if(exit_sw: bool, text: str):
         exit()
 
 
-def yes_no_input() -> bool:
+def yn_exit_input() -> Optional[bool]:
     while True:
-        choice = input("Please respond with 'yes' or 'no' [y/N]: ").lower()
+        choice = input("Please respond with 'yes' or 'no' [y/N/exit]: ").lower()
         if choice in ["y", "ye", "yes"]:
             return True
         elif choice in ["n", "no"]:
             return False
+        elif choice == "exit":
+            break
 
 
 def del_old_files(path: str):
@@ -24,7 +27,7 @@ def del_old_files(path: str):
         del_path : str = f"{path}.{extension}"
         if os.path.exists(del_path):
             os.remove(del_path)
-            print(f"DELETE: {del_path}")
+            print(f"del {del_path}")
 
 
 def main():
@@ -39,7 +42,7 @@ def main():
     cmd_lines : list = [f"rustc {rust_source}", f".\\{rust_source[:-3]}", ]
     if os.path.exists(f"{cur_path}\\{rust_source[:-3]}.exe"):
         print(f"The {rust_source[:-3]}.exe already exists. Do you want to overwrite it and run it?")
-        if not yes_no_input():
+        if (ret := yn_exit_input()) is None or not ret:
             exit()
         del_old_files(rust_source[:-3])
     for cmd in cmd_lines:
