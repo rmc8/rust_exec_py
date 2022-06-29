@@ -10,13 +10,13 @@ def get_requires(**kwargs) -> List[str]:
 
 # DOC: https://docs.python.org/ja/3/distutils/setupscript.html
 setup(
-    name="name",
-    version="2022.06.24",
-    description="Describe any descriptions",
+    name="rsexec",
+    version="2022.06.29",
+    description="",
     author="rmc8",
     author_email="k@rmc-8.com",
     url="https://github.com/rmc8/py_template_repository",
-    packages=["src"],
+    packages=["rsexec"],
     install_requires=get_requires(),
     entry_points={
         "console_scripts": [
