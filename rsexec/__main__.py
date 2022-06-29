@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 
 
 def exit_if(exit_sw: bool, text: str):
@@ -10,8 +11,7 @@ def exit_if(exit_sw: bool, text: str):
 
 def main():
     cur_path: str = os.getcwd()
-    os.system(f"cd {cur_path}")
-    print(cur_path)
+    subprocess.call(f"cd {cur_path}")
     exit_if(
         len(sys.argv) == 1,
         "No arguments were found that contain the path to the .rs script",
@@ -21,7 +21,7 @@ def main():
     cmd_lines : list = [f"rustc {rust_source}", f"./{rust_source[:-3]}", ]
     for cmd in cmd_lines:
         print(cmd)
-        os.system(cmd)
+        subprocess.call(cmd)
 
 
 if __name__ == "__main__":
