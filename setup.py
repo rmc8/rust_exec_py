@@ -20,7 +20,7 @@ setup(
     install_requires=get_requires(),
     entry_points={
         "console_scripts": [
-            "rsexec = rsexec.__main__:main",
+            "rse = rsexec.__main__:main",
         ]
     }
 )
