@@ -18,7 +18,7 @@ def main():
     )
     rust_source: str = sys.argv[1]
     exit_if(rust_source[-3:] != ".rs", "No .rs extension")
-    cmd_lines : list = [f"rustc {rust_source}", f"{rust_source[:-3]}", ]
+    cmd_lines : list = [f"rustc {rust_source}", f".\\{rust_source[:-3]}", ]
     for cmd in cmd_lines:
         print(cmd)
         subprocess.call(cmd)
