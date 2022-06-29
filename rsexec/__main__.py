@@ -12,9 +12,9 @@ def exit_if(exit_sw: bool, text: str):
 def yes_no_input() -> bool:
     while True:
         choice = input("Please respond with 'yes' or 'no' [y/N]: ").lower()
-        if choice in ['y', 'ye', 'yes']:
+        if choice in ["y", "ye", "yes"]:
             return True
-        elif choice in ['n', 'no']:
+        elif choice in ["n", "no"]:
             return False
 
 
